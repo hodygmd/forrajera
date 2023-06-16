@@ -1,0 +1,23 @@
+<div class="d-flex">
+  <div class="border-right p-3" id="sidebar">
+    <div>
+      <a style="text-decoration: none" routerLink="docente-principal">
+        <h3 class="text-light">
+          Menu
+          <!--<img class="float-end" id="imgPerfil" src="https://cdn.icon-icons.com/icons2/2483/PNG/512/user_icon_149851.png">!-->
+        </h3>
+      </a>
+    </div>
+    <hr>
+    <div class="list-group list-reset">
+      <button class="btn btn-primary text-dark button mb-4" routerLink="productos"><span>Productos</span></button>
+      <button class="btn btn-primary text-dark button mb-4" routerLink="categorias"><span>Categorias</span></button>
+      <button class="btn btn-primary text-dark button mb-4" routerLink="presentaciones"><span>Presentaciones</span></button>
+      <button class="btn btn-primary text-dark button mb-4" routerLink="marcas"><span>Marcas</span></button>
+      <!--<button class="btn btn-primary text-dark button mb-4" (click)="closeSesion()" routerLink="/"><span>Cerrar Sesion</span></button>!-->
+    </div>
+  </div>
+  <div class="container scroll cont">
+    <router-outlet></router-outlet>
+  </div>
+</div>
