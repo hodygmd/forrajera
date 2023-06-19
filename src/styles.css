@@ -1,25 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-  background-color: #2f5a93;
+  background-image: url("https://cdn.discordapp.com/attachments/831740786638192653/1119336103124668476/DALLE_2023-06-16_12.40.30_-_a_background_for_a_web_page_with_dark_blue_purple_and_pink_colors.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 #imgPerfil {
   width: 45px;
   height: 45px;
 }
-#sidebar {
+/*#sidebar {
   height: 100%;
   min-height: 100vh;
-  min-width: 12rem;
+  min-width: 15rem;
   background-color: rgba(131, 46, 69, 0.75);
   border-right: 2px solid black;
   border-top: 2px solid black;
-  /*opacity: 90%;*/
-}
+  opacity: 90%;
+}*/
 /*#sidebar:hover{
   opacity: 100%;
 }*/
-.button{
-  min-width: 8rem;
+/*.button{
+  width: 14rem;
   background-color: #F48FB1;
   border: 5px solid #7E57C2;
   border-radius: 10px;
@@ -42,10 +44,10 @@ body{
   transition: 0.5s;
 }
 .button span:after {
-  /*content: '֍';*/
-  /*content: '➤';*/
+  content: '֍';
+  content: '➤';
   content: '⫸';
-  /*content: '(𐌱C)';*/
+  content: '(𐌱C)';
   position: absolute;
   opacity: 0;
   top: 0;
@@ -63,23 +65,184 @@ body{
   background-color: #c94882;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
-}
-.fondo-tabla{
-  background-color: rgba(199, 80, 130, 0.73);
+}*/
+/*.fondo-tabla{
+  background-color: #a4cae5;
   height: max-content;
+}*/
+thead{
+  background-color: #2f8193;
 }
+.trbody{
+  background-color: rgba(157, 187, 227, 0.88);
+}
+
 .scroll {
   display: block;
   height: 100vh;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
-.modal-header{
-  background-color: #2f5a93;
+/*.modal-header{
+  background-color: #9b5675;
 }
 .modal-body{
-  background-color: #7762d7;
+  background-color: rgba(155, 86, 117, 0.86);
 }
 .modal-footer{
-  background-color: #2f5a93;
+  background-color: #9b5675;
+}*/
+.modal-content{
+  background-image: url("https://cdn.discordapp.com/attachments/831740786638192653/1119336103124668476/DALLE_2023-06-16_12.40.30_-_a_background_for_a_web_page_with_dark_blue_purple_and_pink_colors.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#offcanvasDarkNavbar{
+  width: 18rem;
+  /*background-color: #9f5576;*/
+  background-image: url("https://cdn.discordapp.com/attachments/831740786638192653/1119336103124668476/DALLE_2023-06-16_12.40.30_-_a_background_for_a_web_page_with_dark_blue_purple_and_pink_colors.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+label{
+  font-weight: bold;
+}
+
+
+.custom-btn {
+  width: 14rem;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+  7px 7px 20px 0px rgba(0,0,0,.1),
+  4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+.btn-8 {
+  background-color: #f0ecfc;
+  background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%);
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.btn-8 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-8:before,
+.btn-8:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: 0;
+  background: #c797eb;
+  /*box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2),
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);*/
+  transition: all 0.3s ease;
+}
+.btn-8:before{
+  height: 0%;
+  width: 2px;
+}
+.btn-8:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-8:hover:before {
+  height: 100%;
+}
+.btn-8:hover:after {
+  width: 100%;
+}
+.btn-8:hover{
+  background: transparent;
+}
+.btn-8 span:hover{
+  color: #c797eb;
+}
+.btn-8 span:before,
+.btn-8 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  background: #c797eb;
+  /*box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px -4px 6px 0 rgba(116, 125, 136, .2),
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, .3);*/
+  transition: all 0.3s ease;
+}
+.btn-8 span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-8 span:after {
+  height: 2px;
+  width: 0%;
+}
+.btn-8 span:hover:before {
+  height: 100%;
+}
+.btn-8 span:hover:after {
+  width: 100%;
+}
+
+
+
+.btn-5 {
+  width: max-content;
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  background: rgb(0, 157, 255);
+  background: linear-gradient(0deg, rgb(146, 19, 148) 0%, rgb(146, 19, 148) 100%);
+}
+.btn-5 span{
+  font-weight: bold;
+}
+.btn-5:hover {
+  color: #641036;
+  background: transparent;
+  box-shadow:none;
+}
+.btn-5:before,
+.btn-5:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #921394;
+  box-shadow:
+    -1px -1px 5px 0px #fff,
+    7px 7px 20px 0px #0003,
+    4px 4px 5px 0px #0002;
+  transition:400ms ease all;
+}
+.btn-5:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.btn-5:hover:before,
+.btn-5:hover:after{
+  width:100%;
+  transition:800ms ease all;
 }

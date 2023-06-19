@@ -1,4 +1,4 @@
-export class AddMarca {
+export class AddMrcfncn {
   constructor(
     public nombre:string,
     public descripcion:string,

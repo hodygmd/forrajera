@@ -7,6 +7,8 @@ import {FormsModule} from "@angular/forms";
 import { CategoriasComponent } from './pages/categorias/categorias.component';
 import { PresentacionesComponent } from './pages/presentaciones/presentaciones.component';
 import { MarcasComponent } from './pages/marcas/marcas.component';
+import { FuncionesComponent } from './pages/funciones/funciones.component';
+import { UnidadesMedidaComponent } from './pages/unidades-medida/unidades-medida.component';
 
 
 
@@ -16,7 +18,9 @@ import { MarcasComponent } from './pages/marcas/marcas.component';
     ProductosComponent,
     CategoriasComponent,
     PresentacionesComponent,
-    MarcasComponent
+    MarcasComponent,
+    FuncionesComponent,
+    UnidadesMedidaComponent
   ],
   imports: [
     CommonModule,

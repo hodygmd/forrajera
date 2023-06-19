@@ -2,7 +2,7 @@
   <div class="text-center">
     <button class="custom-btn btn-5" data-bs-toggle="modal" data-bs-target="#productsModal"
             (click)="setNull()">
-      <span class="mx-3">Agregar Marca</span>
+      <span class="mx-3">Agregar Funcion</span>
     </button>
   </div>
   <div class="mx-5 mt-5">
@@ -17,16 +17,16 @@
       </tr>
       </thead>
       <tbody class="table-group-divider">
-      <tr class="align-middle trbody" *ngFor="let i of marcas;let j=index">
+      <tr class="align-middle trbody" *ngFor="let i of funciones;let j=index">
         <td>{{j}}</td>
         <td>{{i.nombre}}</td>
         <td>{{i.descripcion}}</td>
         <td>
           <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productsModal"
-                  (click)="updateMarca(j)"><i class="bi bi-pencil-square"></i></button>
+                  (click)="updateFuncion(j)"><i class="bi bi-pencil-square"></i></button>
         </td>
         <td>
-          <button class="btn btn-danger" (click)="deleteMarca(i.id)"><i class="bi bi-trash3"></i></button>
+          <button class="btn btn-danger" (click)="deleteFuncion(i.id)"><i class="bi bi-trash3"></i></button>
         </td>
       </tr>
       </tbody>
@@ -38,7 +38,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Marca</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Funcion</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -54,7 +54,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-success" (click)="createMarca(nom,desc)"
+        <button type="submit" class="btn btn-success" (click)="createFuncion(nom,desc)"
                 data-bs-dismiss="modal">{{textButtonSubmit}}</button>
       </div>
     </div>

@@ -1,11 +1,11 @@
 <div class="container mt-5" >
   <div class="text-center">
-    <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#productsModal" (click)="setNull()">
-      Agregar Presentacion
+    <button class="custom-btn btn-5" data-bs-toggle="modal" data-bs-target="#productsModal" (click)="setNull()">
+      <span class="mx-3">Agregar Presentacion</span>
     </button>
   </div>
-  <div class="mx-5 mt-5 fondo-tabla border border-2 border-dark rounded-2">
-    <table bordered class="text-center table table-striped">
+  <div class="mx-5 mt-5">
+    <table bordered class="text-center table table-striped border border-2 border-dark">
       <thead>
       <tr>
         <th>#</th>
@@ -17,8 +17,8 @@
         <th></th>
       </tr>
       </thead>
-      <tbody>
-      <tr class="align-middle" *ngFor="let i of presentaciones;let j=index">
+      <tbody class="table-group-divider">
+      <tr class="align-middle trbody" *ngFor="let i of presentaciones;let j=index">
         <td>{{j}}</td>
         <td>{{i.nombre}}</td>
         <td>{{i.descripcion}}</td>
