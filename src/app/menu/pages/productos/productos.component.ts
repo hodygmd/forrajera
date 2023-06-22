@@ -127,6 +127,7 @@ export class ProductosComponent implements OnInit {
   protected readonly parseInt = parseInt;
   protected readonly parseFloat = parseFloat;
   setNull(){
+    this.clave='prod'
     this.nom=''
     this.desc=''
     this.prec=''

@@ -2,16 +2,19 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {
-  CategoriaInterface,
+  CategoriaInterface, EmpleadoInterface,
   MrcFncnInterface,
   PresentacionInterface,
-  ProductoInterface, UnidadMedidaInterface
+  ProductoInterface, PuestoInterface, UnidadMedidaInterface
 } from "./Interfaces/producto-interface";
 import {AddProducto} from "./Classes/add-producto";
 import {AddMrcfncn} from "./Classes/add-mrcfncn";
 import {AddCategoria} from "./Classes/add-categoria";
 import {AddPresentacion} from "./Classes/add-presentacion";
 import {AddUnidadMedida} from "./Classes/add-unidad-medida";
+import {AddPuesto} from "./Classes/add-puesto";
+import * as http from "http";
+import {AddEmpleado} from "./Classes/add-empleado";
 
 @Injectable({
   providedIn: 'root'
@@ -133,5 +136,37 @@ export class AppServiceService {
   }
   deleteUnidadMedida(id:number){
     return this.http.put<UnidadMedidaInterface>(`${this.baseUrl}/unidad-medida/delete/${id}`,'')
+  }
+  /*-------------------------------------------------------------------------------------*/
+  /*-------------------------------------PUESTOS-----------------------------------------*/
+
+  /*-------------------------------------------------------------------------------------*/
+  getPuestos(){
+    return this.http.get<PuestoInterface>(`${this.baseUrl}/puesto`)
+  }
+  createPuesto(nom:string){
+    return this.http.post<PuestoInterface>(`${this.baseUrl}/puesto/create`,new AddPuesto(nom,1))
+  }
+  updatePuesto(id:number,nom:string){
+    return this.http.put<PuestoInterface>(`${this.baseUrl}/puesto/update/${id}`,new AddPuesto(nom,1))
+  }
+  deletePuesto(id:number){
+    return this.http.put<PuestoInterface>(`${this.baseUrl}/puesto/delete/${id}`,'1')
+  }
+  /*-------------------------------------------------------------------------------------*/
+  /*------------------------------------EMPLEADOS----------------------------------------*/
+
+  /*-------------------------------------------------------------------------------------*/
+  getEmpleados(){
+    return this.http.get<EmpleadoInterface>(`${this.baseUrl}/empleado`)
+  }
+  createEmpleado(clave:string,nom:string,idP:number){
+    return this.http.post<EmpleadoInterface>(`${this.baseUrl}/empleado/create`,new AddEmpleado(clave,nom,idP,1))
+  }
+  updateEmpleado(clave:string,nom:string,idP:number){
+    return this.http.put<EmpleadoInterface>(`${this.baseUrl}/empleado/update/${clave}`,new AddEmpleado(clave,nom,idP,1))
+  }
+  deleteEmpleado(clave:string){
+    return this.http.put<EmpleadoInterface>(`${this.baseUrl}/empleado/delete/${clave}`,'')
   }
 }

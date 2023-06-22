@@ -3,6 +3,7 @@ body{
   background-image: url("https://cdn.discordapp.com/attachments/831740786638192653/1119336103124668476/DALLE_2023-06-16_12.40.30_-_a_background_for_a_web_page_with_dark_blue_purple_and_pink_colors.png");
   background-size: cover;
   background-repeat: no-repeat;
+  min-height: 100vh;
 }
 #imgPerfil {
   width: 45px;
@@ -74,6 +75,12 @@ thead{
   background-color: #2f8193;
 }
 .trbody{
+  background-color: rgba(157, 187, 227, 0.88);
+}
+.card{
+  background-color: #2f8193;
+}
+.card-footer{
   background-color: rgba(157, 187, 227, 0.88);
 }
 
@@ -204,7 +211,7 @@ label{
 
 
 .btn-5 {
-  width: max-content;
+
   height: 40px;
   line-height: 42px;
   padding: 0;
@@ -245,4 +252,74 @@ label{
 .btn-5:hover:after{
   width:100%;
   transition:800ms ease all;
+}
+
+.btn-3 {
+  background: rgb(0,172,238);
+  background: linear-gradient(0deg, rgba(0,172,238,1) 0%, rgba(2,126,251,1) 100%);
+
+  height: 40px;
+  line-height: 42px;
+  padding: 0;
+  border: none;
+
+}
+.btn-3 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-3:before,
+.btn-3:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  top: 0;
+  background: rgba(2,126,251,1);
+  transition: all 0.3s ease;
+}
+.btn-3:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-3:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3:hover{
+  background: transparent;
+  box-shadow: none;
+}
+.btn-3:hover:before {
+  height: 100%;
+}
+.btn-3:hover:after {
+  width: 100%;
+}
+.btn-3 span:hover{
+  color: rgba(2,126,251,1);
+}
+.btn-3 span:before,
+.btn-3 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 0;
+  background: rgba(2,126,251,1);
+  transition: all 0.3s ease;
+}
+.btn-3 span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-3 span:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-3 span:hover:before {
+  height: 100%;
+}
+.btn-3 span:hover:after {
+  width: 100%;
 }

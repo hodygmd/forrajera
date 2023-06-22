@@ -8,6 +8,8 @@ import {PresentacionesComponent} from "./pages/presentaciones/presentaciones.com
 import {MarcasComponent} from "./pages/marcas/marcas.component";
 import {FuncionesComponent} from "./pages/funciones/funciones.component";
 import {UnidadesMedidaComponent} from "./pages/unidades-medida/unidades-medida.component";
+import {PuestosComponent} from "./pages/puestos/puestos.component";
+import {EmpleadosComponent} from "./pages/empleados/empleados.component";
 
 const routes: Routes=[
   {path: '',
@@ -19,6 +21,8 @@ const routes: Routes=[
       {path: 'marcas',component:MarcasComponent},
       {path: 'funciones',component:FuncionesComponent},
       {path: 'unidades-medida',component:UnidadesMedidaComponent},
+      {path: 'puestos',component:PuestosComponent},
+      {path: 'empleados',component:EmpleadosComponent},
       {path: '**',redirectTo:'productos'}
     ]}
 ]

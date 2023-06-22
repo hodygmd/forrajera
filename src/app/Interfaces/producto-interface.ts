@@ -36,3 +36,14 @@ export interface UnidadMedidaInterface{
   unidad:string
   status:number
 }
+export interface EmpleadoInterface{
+  clave:string
+  nombre:string
+  id_puesto:PuestoInterface
+  status:number
+}
+export interface PuestoInterface{
+  id:number
+  nombre:string
+  status:number
+}
