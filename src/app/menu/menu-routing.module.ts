@@ -10,6 +10,7 @@ import {FuncionesComponent} from "./pages/funciones/funciones.component";
 import {UnidadesMedidaComponent} from "./pages/unidades-medida/unidades-medida.component";
 import {PuestosComponent} from "./pages/puestos/puestos.component";
 import {EmpleadosComponent} from "./pages/empleados/empleados.component";
+import {AddVentasComponent} from "./pages/add-ventas/add-ventas.component";
 
 const routes: Routes=[
   {path: '',
@@ -23,6 +24,7 @@ const routes: Routes=[
       {path: 'unidades-medida',component:UnidadesMedidaComponent},
       {path: 'puestos',component:PuestosComponent},
       {path: 'empleados',component:EmpleadosComponent},
+      {path: 'add-ventas',component:AddVentasComponent},
       {path: '**',redirectTo:'productos'}
     ]}
 ]

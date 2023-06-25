@@ -2,10 +2,10 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {
-  CategoriaInterface, EmpleadoInterface,
+  CategoriaInterface, DetalleVentaInterface, EmpleadoInterface,
   MrcFncnInterface,
   PresentacionInterface,
-  ProductoInterface, PuestoInterface, UnidadMedidaInterface
+  ProductoInterface, PuestoInterface, UnidadMedidaInterface, VentaInterface
 } from "./Interfaces/producto-interface";
 import {AddProducto} from "./Classes/add-producto";
 import {AddMrcfncn} from "./Classes/add-mrcfncn";
@@ -15,6 +15,8 @@ import {AddUnidadMedida} from "./Classes/add-unidad-medida";
 import {AddPuesto} from "./Classes/add-puesto";
 import * as http from "http";
 import {AddEmpleado} from "./Classes/add-empleado";
+import {AddVenta} from "./Classes/add-venta";
+import {AddDetalleVenta} from "./Classes/add-detalle-venta";
 
 @Injectable({
   providedIn: 'root'
@@ -168,5 +170,31 @@ export class AppServiceService {
   }
   deleteEmpleado(clave:string){
     return this.http.put<EmpleadoInterface>(`${this.baseUrl}/empleado/delete/${clave}`,'')
+  }
+  /*-------------------------------------------------------------------------------------*/
+  /*----------------------------------DETALLES VENTAS------------------------------------*/
+
+  /*-------------------------------------------------------------------------------------*/
+  getProductosByFolio(folio:string){
+    return this.http.get<DetalleVentaInterface>(`${this.baseUrl}/dv/${folio}`)
+  }
+  addDetalleVenta(dv:AddDetalleVenta[]){
+    return this.http.post(`${this.baseUrl}/dv/create`,dv)
+  }
+  deleteDetalleVenta(id:number){
+    return this.http.delete(`${this.baseUrl}/dv/delete/${id}`)
+  }
+  /*-------------------------------------------------------------------------------------*/
+  /*---------------------------------------VENTAS----------------------------------------*/
+
+  /*-------------------------------------------------------------------------------------*/
+  getVentas(){
+    return this.http.get<VentaInterface>(`${this.baseUrl}/venta`)
+  }
+  createVenta(folio:string,clave:string){
+    return this.http.post<VentaInterface>(`${this.baseUrl}/venta/create`,new AddVenta(folio,0,clave,1))
+  }
+  deleteVenta(folio:string){
+    return this.http.put<VentaInterface>(`${this.baseUrl}/venta/delete/${folio}`,'')
   }
 }

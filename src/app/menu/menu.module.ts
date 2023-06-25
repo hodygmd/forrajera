@@ -11,6 +11,7 @@ import { FuncionesComponent } from './pages/funciones/funciones.component';
 import { UnidadesMedidaComponent } from './pages/unidades-medida/unidades-medida.component';
 import { PuestosComponent } from './pages/puestos/puestos.component';
 import { EmpleadosComponent } from './pages/empleados/empleados.component';
+import { AddVentasComponent } from './pages/add-ventas/add-ventas.component';
 
 
 
@@ -24,7 +25,8 @@ import { EmpleadosComponent } from './pages/empleados/empleados.component';
     FuncionesComponent,
     UnidadesMedidaComponent,
     PuestosComponent,
-    EmpleadosComponent
+    EmpleadosComponent,
+    AddVentasComponent
   ],
   imports: [
     CommonModule,

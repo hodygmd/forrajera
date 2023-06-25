@@ -47,3 +47,17 @@ export interface PuestoInterface{
   nombre:string
   status:number
 }
+export interface VentaInterface{
+  folio:string
+  fecha:string
+  total:number
+  clave_empleado:EmpleadoInterface
+  status:number
+}
+export interface DetalleVentaInterface{
+  id:number
+  folio_v:VentaInterface
+  clave_producto:ProductoInterface
+  cantidad:number
+  precio:number
+}
