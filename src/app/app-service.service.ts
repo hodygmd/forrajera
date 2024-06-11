@@ -26,7 +26,9 @@ export class AppServiceService {
 
   constructor(private http: HttpClient) {
   }
-
+  auth(username: string, password: string) {
+    return this.http.post<EmpleadoInterface>(`${this.baseUrl}/empleado/login`,new AddEmpleado('','',username,password,0,1))
+  }
   /*-------------------------------------------------------------------------------------*/
   /*------------------------------------PRODUCTOS----------------------------------------*/
 
@@ -162,11 +164,14 @@ export class AppServiceService {
   getEmpleados(){
     return this.http.get<EmpleadoInterface>(`${this.baseUrl}/empleado`)
   }
-  createEmpleado(clave:string,nom:string,idP:number){
-    return this.http.post<EmpleadoInterface>(`${this.baseUrl}/empleado/create`,new AddEmpleado(clave,nom,idP,1))
+  createEmpleado(clave:string,nom:string,username:string,password:string,idP:number){
+    return this.http.post<EmpleadoInterface>(`${this.baseUrl}/empleado/create`,new AddEmpleado(clave,nom,username,password,idP,1))
   }
-  updateEmpleado(clave:string,nom:string,idP:number){
-    return this.http.put<EmpleadoInterface>(`${this.baseUrl}/empleado/update/${clave}`,new AddEmpleado(clave,nom,idP,1))
+  updateEmpleado(clave:string,nom:string,username:string,password:string,idP:number){
+    return this.http.put<EmpleadoInterface>(`${this.baseUrl}/empleado/update/${clave}`,new AddEmpleado(clave,nom,username,password,idP,1))
+  }
+  updatePassword(clave:string,nom:string,username:string,password:string,idP:number){
+    return this.http.put<EmpleadoInterface>(`${this.baseUrl}/empleado/update-pass/${clave}`,new AddEmpleado(clave,nom,username,password,idP,1))
   }
   deleteEmpleado(clave:string){
     return this.http.put<EmpleadoInterface>(`${this.baseUrl}/empleado/delete/${clave}`,'')

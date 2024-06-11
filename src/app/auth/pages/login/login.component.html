@@ -1,0 +1,26 @@
+<div class="d-flex cuerpo">
+  <div class="container">
+    <section class="form-login d-flex flex-column">
+      <h5>BIENVENIDO</h5>
+      <input class="controls text-uppercase" (keyup.enter)="sesion(username.value,password.value)" type="text"
+             placeholder="Usuario" #username required>
+      <hr>
+      <!--<div class="d-flex">
+        <input class="controls" [type]="fieldTextType ? 'text' : 'password'"
+               (keyup.enter)="sesion(txtNombre.value,txtContra.value)" required type="password" #txtContra>
+        <button style="height: 70%" (click)="toggleFieldTextType()">Ver</button>
+      </div>-->
+      <div class="input-group mb-3">
+        <input [type]="fieldTextType?'text':'password'" class="form-control controls" placeholder="Password"
+               aria-describedby="basic-addon1" #password (keyup.enter)="sesion(username.value,password.value)" required>
+        <span class="input-group-text" id="basic-addon1" (click)="toggleFieldTextType()">
+          <i *ngIf="!fieldTextType" class="bi bi-eye"></i>
+          <i *ngIf="fieldTextType" class="bi bi-eye-slash"></i>
+        </span>
+      </div>
+
+      <button class="btn botton text-center" (click)="sesion(username.value,password.value)" required>INGRESAR
+      </button>
+    </section>
+  </div>
+</div>

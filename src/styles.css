@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-  background-image: url("https://cdn.discordapp.com/attachments/831740786638192653/1119336103124668476/DALLE_2023-06-16_12.40.30_-_a_background_for_a_web_page_with_dark_blue_purple_and_pink_colors.png");
+  /*background-image: url("https://cdn.discordapp.com/attachments/831740786638192653/1119336103124668476/DALLE_2023-06-16_12.40.30_-_a_background_for_a_web_page_with_dark_blue_purple_and_pink_colors.png");*/
+  background-image: url("https://res.cloudinary.com/db4b3xja0/image/upload/v1706231587/vercel-api/uvf22tcnvsfomdjv2gtc.png");
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
@@ -103,14 +104,16 @@ thead{
   background-color: #9b5675;
 }*/
 .modal-content{
-  background-image: url("https://cdn.discordapp.com/attachments/831740786638192653/1119336103124668476/DALLE_2023-06-16_12.40.30_-_a_background_for_a_web_page_with_dark_blue_purple_and_pink_colors.png");
+  /*background-image: url("https://cdn.discordapp.com/attachments/831740786638192653/1119336103124668476/DALLE_2023-06-16_12.40.30_-_a_background_for_a_web_page_with_dark_blue_purple_and_pink_colors.png");*/
+  background-image: url("https://res.cloudinary.com/db4b3xja0/image/upload/v1706231222/vercel-api/hy9dv6joo9jdywpptlv2.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
 #offcanvasDarkNavbar{
   width: 18rem;
   /*background-color: #9f5576;*/
-  background-image: url("https://cdn.discordapp.com/attachments/831740786638192653/1119336103124668476/DALLE_2023-06-16_12.40.30_-_a_background_for_a_web_page_with_dark_blue_purple_and_pink_colors.png");
+  /*background-image: url("https://cdn.discordapp.com/attachments/831740786638192653/1119336103124668476/DALLE_2023-06-16_12.40.30_-_a_background_for_a_web_page_with_dark_blue_purple_and_pink_colors.png");*/
+  background-image: url("https://res.cloudinary.com/db4b3xja0/image/upload/v1706231423/vercel-api/w8vjklb5tsezaj3lbone.png");
   background-size: cover;
   background-repeat: no-repeat;
 }

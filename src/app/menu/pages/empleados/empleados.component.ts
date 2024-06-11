@@ -13,7 +13,10 @@ export class EmpleadosComponent implements OnInit{
   pues:number=1
   clave:string='empl'
   nom!:string
+  user!:string
+  pass!:string
   editar:boolean=false
+  editarPass:boolean=false
   textButtonSubmit:string='Add'
   constructor(private service:AppServiceService) {}
 
@@ -34,18 +37,24 @@ export class EmpleadosComponent implements OnInit{
     )
   }
 
-  createEmpleado(nom: string) {
-    if(nom===''){
+  createEmpleado(nom: string,user:string,pass:string) {
+    /*if(nom===''){
       alert('Llena todos los campos')
-    }else{
-      if(!this.editar){
+    }else{*/
+      if(!this.editar&&!this.editarPass){
+        if(nom===''||user===''||pass===''){
+          alert('Llena todos los campos')
+          return;
+        }
         const date = new Date();
         const random = Math.random();
         const timestamp = date.getTime();
         const randomWithTimestamp = random * timestamp;
         this.clave += Math.floor(randomWithTimestamp) % 10000000;
         console.log(this.clave)
-        this.service.createEmpleado(this.clave,nom,this.pues).subscribe(
+        console.log(user)
+        console.log(pass)
+        this.service.createEmpleado(this.clave,nom,user,pass,this.pues).subscribe(
           response=>{
             console.log(response)
             this.ngOnInit()
@@ -53,8 +62,27 @@ export class EmpleadosComponent implements OnInit{
             console.log(error)
           }
         )
-      }else {
-        this.service.updateEmpleado(this.clave,nom,this.pues).subscribe(
+      }else if(this.editarPass){
+        if(pass===''){
+          alert('Llena todos los campos')
+          return
+        }
+        console.log('editar pass')
+        this.service.updatePassword(this.clave,this.nom,this.user,this.pass,this.pues).subscribe(
+          response=>{
+            console.log(response)
+            this.ngOnInit()
+          },error => {
+            console.log(error)
+          }
+        )
+      } else {
+        if(nom===''||user===''){
+          alert('Llena todos los campos')
+          return;
+        }
+        console.log('editar')
+        this.service.updateEmpleado(this.clave,nom,user,pass,this.pues).subscribe(
           response=>{
             console.log(response)
             this.ngOnInit()
@@ -63,17 +91,27 @@ export class EmpleadosComponent implements OnInit{
           }
         )
       }
-    }
+    //}
   }
 
   updateEmpleado(index: number) {
     this.clave=this.empleados[index].clave
     this.nom=this.empleados[index].nombre
+    this.user=this.empleados[index].username
+    this.pass=this.empleados[index].password
     this.pues=this.empleados[index].id_puesto.id
     this.editar=true
+    this.editarPass=false
     this.textButtonSubmit='Edit'
   }
-
+  updatePassword(index:number){
+    this.editarPass=true
+    this.clave=this.empleados[index].clave
+    this.pass=''
+    this.editar=false
+    this.editarPass=true
+    this.textButtonSubmit='Edit Password'
+  }
   deleteEmpleado(clave: string) {
     this.service.deleteEmpleado(clave).subscribe(
       response=>{
@@ -88,8 +126,11 @@ export class EmpleadosComponent implements OnInit{
   setNull() {
     this.clave='empl'
     this.nom=''
+    this.user=''
+    this.pass=''
     this.pues=1
     this.editar=false
+    this.editarPass=false
     this.textButtonSubmit='Add'
   }
 }
