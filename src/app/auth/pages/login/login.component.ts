@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit{
         if (data) {
           localStorage.setItem('user', JSON.stringify(data))
           localStorage.setItem('clave', data.clave)
+          localStorage.setItem('puesto', data.id_puesto.nombre)
           this.router.navigate(['/menu/sidebar'])
         } else {
           alert('Usuario o contraseña incorrectos')
