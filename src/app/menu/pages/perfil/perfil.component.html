@@ -1,0 +1,79 @@
+<div class="d-flex justify-content-center" style="margin-top:160px">
+  <div class="card" style="width: 25rem;background-color: #775f8d">
+    <div class="card-body text-center">
+      <div class="d-flex text-center justify-content-center mb-4">
+        <h5 class="card-title fw-bold">Nombre:</h5>
+        <h5 class="card-title text-uppercase ms-2">{{userObject.nombre}}</h5>
+      </div>
+      <hr/>
+      <div class="d-flex text-center justify-content-center mb-4">
+        <h6 class="card-subtitle text-body-secondary fw-bold">Usuario:</h6>
+        <h6 class="card-subtitle text-body-secondary ms-2">{{ userObject.username }}</h6>
+      </div>
+      <div class="d-flex text-center justify-content-center mb-4">
+        <h6 class="card-text fw-bold">Clave:</h6>
+        <h6 class="card-text ms-2">{{userObject.clave}}</h6>
+      </div>
+      <div class="d-flex text-center justify-content-center mb-2">
+        <h6 class="card-text fw-bold">Puesto:</h6>
+        <h6 class="card-text ms-2">{{userObject.id_puesto.nombre}}</h6>
+      </div>
+    </div>
+    <div class="card-footer" style="background-color: #613986">
+      <div class="d-flex justify-content-around">
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productsModal"
+        (click)="updateEmpleado()">
+          <i class="bi bi-pencil-square"></i>
+        </button>
+        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#productsModal"
+        (click)="updatePassword()">
+          <i class="bi bi-person-lock"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="productsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Empleado</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex flex-column">
+          <label *ngIf="!editarPass">
+            Nombre:
+            <input type="text" class="ms-2" [(ngModel)]="nom">
+          </label>
+          <label *ngIf="!editarPass">
+            Username:
+            <input type="text" class="ms-2 my-2" [(ngModel)]="user" required>
+          </label>
+          <div *ngIf="!editar||editarPass">
+            <label class="input-group">
+              Password:
+              <input [type]="fieldTextType?'text':'password'" class="form-control ms-2" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"
+              style="max-width: 200px" [(ngModel)]="pass" required>
+              <span class="input-group-text" id="basic-addon1" (click)="toggleFieldTextType()">
+                <i *ngIf="!fieldTextType" class="bi bi-eye"></i>
+                <i *ngIf="fieldTextType" class="bi bi-eye-slash"></i>
+              </span>
+            </label>
+          </div>
+          <label *ngIf="!editarPass">
+            Puestos:
+            <select [(ngModel)]="pues" class="ms-2 my-2" required>
+              <option *ngFor="let i of puestos" [value]="i.id">{{i.nombre}}</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="update(nom,user,pass)">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
