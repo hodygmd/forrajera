@@ -20,4 +20,5 @@ export class SidebarComponent implements OnInit{
     localStorage.clear()
     this.router.navigate(['/auth/login'])
   }
+  protected readonly localStorage = localStorage;
 }

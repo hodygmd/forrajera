@@ -26,14 +26,16 @@
   <nav class="navbar navbar-dark fixed-top">
     <div class="container-fluid">
       <!--<a class="navbar-brand" href="#">Offcanvas dark navbar</a>!-->
-      <button class="navbar-toggler bg-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
-              aria-controls="offcanvasDarkNavbar">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+              aria-controls="offcanvasDarkNavbar" style="background-color: #613986">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasDarkNavbar"
            aria-labelledby="offcanvasDarkNavbarLabel">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
+          <button class="btn" routerLink="perfil">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
+          </button>
           <button type="button" class="btn border rounded-2 ms-3" (click)="closeSession()">
             <i class="bi bi-escape"></i>
           </button>
@@ -65,7 +67,7 @@
               <button class="custom-btn btn-8 mb-4" routerLink="puestos"><span>Puestos</span>
               </button>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="localStorage.getItem('puesto')==='administrador'">
               <button class="custom-btn btn-8 mb-4" routerLink="empleados"><span>Empleados</span>
               </button>
             </li>
