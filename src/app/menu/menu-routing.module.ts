@@ -11,11 +11,13 @@ import {UnidadesMedidaComponent} from "./pages/unidades-medida/unidades-medida.c
 import {PuestosComponent} from "./pages/puestos/puestos.component";
 import {EmpleadosComponent} from "./pages/empleados/empleados.component";
 import {AddVentasComponent} from "./pages/add-ventas/add-ventas.component";
+import {PerfilComponent} from "./pages/perfil/perfil.component";
 
 const routes: Routes=[
   {path: '',
     component:SidebarComponent,
     children:[
+      {path: 'perfil',component:PerfilComponent},
       {path: 'productos',component:ProductosComponent},
       {path: 'categorias',component:CategoriasComponent},
       {path: 'presentaciones',component:PresentacionesComponent},
@@ -25,7 +27,7 @@ const routes: Routes=[
       {path: 'puestos',component:PuestosComponent},
       {path: 'empleados',component:EmpleadosComponent},
       {path: 'add-ventas',component:AddVentasComponent},
-      {path: '**',redirectTo:'productos'}
+      {path: '**',redirectTo:'perfil'}
     ]}
 ]
 
