@@ -105,7 +105,6 @@ export class EmpleadosComponent implements OnInit{
     this.textButtonSubmit='Edit'
   }
   updatePassword(index:number){
-    this.editarPass=true
     this.clave=this.empleados[index].clave
     this.pass=''
     this.editar=false
@@ -132,5 +131,10 @@ export class EmpleadosComponent implements OnInit{
     this.editar=false
     this.editarPass=false
     this.textButtonSubmit='Add'
+  }
+  fieldTextType?: boolean;
+
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
   }
 }

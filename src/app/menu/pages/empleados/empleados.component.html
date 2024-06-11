@@ -15,6 +15,7 @@
         <th>Puesto</th>
         <th></th>
         <th></th>
+        <th></th>
       </tr>
       </thead>
       <tbody class="table-group-divider">
@@ -50,10 +51,17 @@
             Username:
             <input type="text" class="ms-2 my-2" [(ngModel)]="user" required>
           </label>
-          <label *ngIf="!editar||editarPass">
-            Password:
-            <input type="password" class="ms-2" [(ngModel)]="pass" required>
-          </label>
+          <div *ngIf="!editar||editarPass">
+            <label class="input-group">
+              Password:
+              <input [type]="fieldTextType?'text':'password'" class="form-control ms-2" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"
+                     style="max-width: 200px" [(ngModel)]="pass" required>
+              <span class="input-group-text" id="basic-addon1" (click)="toggleFieldTextType()">
+                <i *ngIf="!fieldTextType" class="bi bi-eye"></i>
+                <i *ngIf="fieldTextType" class="bi bi-eye-slash"></i>
+              </span>
+            </label>
+          </div>
           <label *ngIf="!editarPass">
             Puestos:
             <select [(ngModel)]="pues" class="ms-2 my-2" required>
