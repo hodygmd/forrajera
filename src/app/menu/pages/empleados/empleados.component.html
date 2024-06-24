@@ -1,4 +1,4 @@
-<div class="container mt-5" >
+<div class="container mt-5">
   <div class="text-center">
     <button class="custom-btn btn-3" data-bs-toggle="modal" data-bs-target="#productsModal" (click)="setNull()">
       <span>Agregar Empleado</span>
@@ -20,14 +20,28 @@
       </thead>
       <tbody class="table-group-divider">
       <tr class="align-middle trbody" *ngFor="let i of empleados;let j=index">
-        <td>{{j}}</td>
-        <td>{{i.clave}}</td>
-        <td>{{i.nombre}}</td>
-        <td>{{i.username}}</td>
-        <td>{{i.id_puesto.nombre}}</td>
-        <td><button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productsModal" (click)="updateEmpleado(j)"><i class="bi bi-pencil-square"></i></button></td>
-        <td><button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#productsModal" (click)="updatePassword(j)"><i class="bi bi-person-lock"></i></button></td>
-        <td><button class="btn btn-danger" (click)="deleteEmpleado(i.clave)"><i class="bi bi-trash3"></i></button></td>
+        <td>{{ j }}</td>
+        <td>{{ i.clave }}</td>
+        <td>{{ i.nombre }}</td>
+        <td>{{ i.username }}</td>
+        <td>{{ i.id_puesto.nombre }}</td>
+        <td>
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productsModal"
+                  (click)="updateEmpleado(j)" title="Actualizar informacion">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#productsModal"
+                  (click)="updatePassword(j)" title="Actualizar contraseña">
+            <i class="bi bi-person-lock"></i>
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteEmpleado(i.clave)" title="Eliminar">
+            <i class="bi bi-trash3"></i>
+          </button>
+        </td>
       </tr>
       </tbody>
     </table>
@@ -54,7 +68,8 @@
           <div *ngIf="!editar||editarPass">
             <label class="input-group">
               Password:
-              <input [type]="fieldTextType?'text':'password'" class="form-control ms-2" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1"
+              <input [type]="fieldTextType?'text':'password'" class="form-control ms-2" placeholder="Password"
+                     aria-label="Username" aria-describedby="basic-addon1"
                      style="max-width: 200px" [(ngModel)]="pass" required>
               <span class="input-group-text" id="basic-addon1" (click)="toggleFieldTextType()">
                 <i *ngIf="!fieldTextType" class="bi bi-eye"></i>
@@ -65,14 +80,16 @@
           <label *ngIf="!editarPass">
             Puestos:
             <select [(ngModel)]="pues" class="ms-2 my-2" required>
-              <option *ngFor="let i of puestos" [value]="i.id">{{i.nombre}}</option>
+              <option *ngFor="let i of puestos" [value]="i.id">{{ i.nombre }}</option>
             </select>
           </label>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-success" (click)="createEmpleado(nom,user,pass)" data-bs-dismiss="modal">{{textButtonSubmit}}</button>
+        <button type="submit" class="btn btn-success" (click)="createEmpleado(nom,user,pass)"
+                data-bs-dismiss="modal">{{ textButtonSubmit }}
+        </button>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-<div class="container mt-5" >
+<div class="container mt-5">
   <div class="text-center">
     <button class="custom-btn btn-3" data-bs-toggle="modal" data-bs-target="#productsModal" (click)="setNull()">
       <span>Agregar Categoria</span>
@@ -17,11 +17,20 @@
       </thead>
       <tbody class="table-group-divider">
       <tr class="align-middle trbody" *ngFor="let i of categorias;let j=index">
-        <td>{{j}}</td>
-        <td>{{i.nombre}}</td>
-        <td>{{i.id_funcion.nombre}}</td>
-        <td><button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productsModal" (click)="updateCategoria(j)"><i class="bi bi-pencil-square"></i></button></td>
-        <td><button class="btn btn-danger" (click)="deleteCategoria(i.id)"><i class="bi bi-trash3"></i></button></td>
+        <td>{{ j }}</td>
+        <td>{{ i.nombre }}</td>
+        <td>{{ i.id_funcion.nombre }}</td>
+        <td>
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productsModal"
+                  (click)="updateCategoria(j)" title="Actualizar informacion">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteCategoria(i.id)" title="Eliminar">
+            <i class="bi bi-trash3"></i>
+          </button>
+        </td>
       </tr>
       </tbody>
     </table>
@@ -44,13 +53,15 @@
         <label>
           Categoria:
           <select [(ngModel)]="func" class="ms-2" required>
-            <option *ngFor="let i of funciones" [value]="i.id">{{i.nombre}}</option>
+            <option *ngFor="let i of funciones" [value]="i.id">{{ i.nombre }}</option>
           </select>
         </label>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-success" (click)="createCategoria(nom)" data-bs-dismiss="modal">{{textButtonSubmit}}</button>
+        <button type="submit" class="btn btn-success" (click)="createCategoria(nom)"
+                data-bs-dismiss="modal">{{ textButtonSubmit }}
+        </button>
       </div>
     </div>
   </div>

@@ -8,8 +8,10 @@ import {Router} from "@angular/router";
 })
 export class SidebarComponent implements OnInit{
   clave:string|null=null
+  puesto:string|null=null
   constructor(private router: Router) {}
   ngOnInit() {
+    this.puesto=localStorage.getItem('puesto')
     this.clave=localStorage.getItem('clave')
     //this.clave?console.log('clave',this.clave):console.log('clave',this.clave)
     if(!this.clave){
@@ -20,5 +22,4 @@ export class SidebarComponent implements OnInit{
     localStorage.clear()
     this.router.navigate(['/auth/login'])
   }
-  protected readonly localStorage = localStorage;
 }

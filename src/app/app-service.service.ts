@@ -23,11 +23,13 @@ import {AddDetalleVenta} from "./Classes/add-detalle-venta";
 })
 export class AppServiceService {
   private baseUrl = 'http://localhost:8080';
+  private token = '?token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2NlIiwiY2xhdmUiOiJlbXBsMjMwMDg2NiIsImlhdCI6MTcxOTEyNjkzMiwiZXhwIjoxNzE5OTkwOTMyfQ.kJhZKJqROhLBylzs1EhYfmpeoQxzLShg7oIQwFAgQe0';
 
   constructor(private http: HttpClient) {
   }
   auth(username: string, password: string) {
-    return this.http.post<EmpleadoInterface>(`${this.baseUrl}/empleado/login`,new AddEmpleado('','',username,password,0,1))
+    return this.http.post<EmpleadoInterface>(`${this.baseUrl}/empleado/login${this.token}`,
+      new AddEmpleado('','',username,password,0,1))
   }
   /*-------------------------------------------------------------------------------------*/
   /*------------------------------------PRODUCTOS----------------------------------------*/
@@ -54,7 +56,7 @@ export class AppServiceService {
 
   /*--------------------------------------------------------------------------------------*/
   getCategorias() {
-    return this.http.get<CategoriaInterface>(`${this.baseUrl}/categoria`)
+    return this.http.get<CategoriaInterface>(`${this.baseUrl}/categoria${this.token}`)
   }
 
   createCategoria(nom: string, idfun: number) {
@@ -162,19 +164,22 @@ export class AppServiceService {
 
   /*-------------------------------------------------------------------------------------*/
   getEmpleados(){
-    return this.http.get<EmpleadoInterface>(`${this.baseUrl}/empleado`)
+    return this.http.get<EmpleadoInterface>(`${this.baseUrl}/empleado${this.token}`)
   }
   createEmpleado(clave:string,nom:string,username:string,password:string,idP:number){
-    return this.http.post<EmpleadoInterface>(`${this.baseUrl}/empleado/create`,new AddEmpleado(clave,nom,username,password,idP,1))
+    return this.http.post<EmpleadoInterface>(`${this.baseUrl}/empleado/create${this.token}`,
+      new AddEmpleado(clave,nom,username,password,idP,1))
   }
   updateEmpleado(clave:string,nom:string,username:string,password:string,idP:number){
-    return this.http.put<EmpleadoInterface>(`${this.baseUrl}/empleado/update/${clave}`,new AddEmpleado(clave,nom,username,password,idP,1))
+    return this.http.put<EmpleadoInterface>(`${this.baseUrl}/empleado/update/${clave}${this.token}`,
+      new AddEmpleado(clave,nom,username,password,idP,1))
   }
   updatePassword(clave:string,nom:string,username:string,password:string,idP:number){
-    return this.http.put<EmpleadoInterface>(`${this.baseUrl}/empleado/update-pass/${clave}`,new AddEmpleado(clave,nom,username,password,idP,1))
+    return this.http.put<EmpleadoInterface>(`${this.baseUrl}/empleado/update-pass/${clave}${this.token}`,
+      new AddEmpleado(clave,nom,username,password,idP,1))
   }
   deleteEmpleado(clave:string){
-    return this.http.put<EmpleadoInterface>(`${this.baseUrl}/empleado/delete/${clave}`,'')
+    return this.http.put<EmpleadoInterface>(`${this.baseUrl}/empleado/delete/${clave}${this.token}`,'')
   }
   /*-------------------------------------------------------------------------------------*/
   /*----------------------------------DETALLES VENTAS------------------------------------*/
@@ -195,6 +200,9 @@ export class AppServiceService {
   /*-------------------------------------------------------------------------------------*/
   getVentas(){
     return this.http.get<VentaInterface>(`${this.baseUrl}/venta`)
+  }
+  getVentasByClave(clave:string){
+    return this.http.get<VentaInterface>(`${this.baseUrl}/venta/ver-ventas/${clave}`)
   }
   createVenta(folio:string,clave:string){
     return this.http.post<VentaInterface>(`${this.baseUrl}/venta/create`,new AddVenta(folio,0,clave,1))

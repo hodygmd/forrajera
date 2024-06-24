@@ -36,7 +36,7 @@
           <button class="btn" routerLink="perfil">
             <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
           </button>
-          <button type="button" class="btn border rounded-2 ms-3" (click)="closeSession()">
+          <button type="button" class="btn ms-5" (click)="closeSession()" title="Cerrar sesion">
             <i class="bi bi-escape"></i>
           </button>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
@@ -44,6 +44,9 @@
         </div>
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-start">
+            <li class="nav-item">
+              <button class="custom-btn btn-8 mb-4" routerLink="perfil"><span>Perfil</span></button>
+            </li>
             <li class="nav-item">
               <button class="custom-btn btn-8 mb-4" routerLink="productos"><span>Productos</span></button>
             </li>
@@ -67,7 +70,7 @@
               <button class="custom-btn btn-8 mb-4" routerLink="puestos"><span>Puestos</span>
               </button>
             </li>
-            <li class="nav-item" *ngIf="localStorage.getItem('puesto')==='administrador'">
+            <li class="nav-item" *ngIf="puesto==='administrador'">
               <button class="custom-btn btn-8 mb-4" routerLink="empleados"><span>Empleados</span>
               </button>
             </li>

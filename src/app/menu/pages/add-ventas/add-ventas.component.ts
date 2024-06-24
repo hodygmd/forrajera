@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {
   DetalleVentaInterface,
-  EmpleadoInterface,
   ProductoInterface,
   VentaInterface
 } from "../../../Interfaces/producto-interface";
@@ -14,18 +13,18 @@ import {AddDetalleVenta} from "../../../Classes/add-detalle-venta";
   styleUrls: ['./add-ventas.component.css']
 })
 export class AddVentasComponent implements OnInit{
-  empleados!:EmpleadoInterface|any
+  clave:string|null=null
   ventas!:VentaInterface|any
   detalles!:DetalleVentaInterface|any
   productos!:ProductoInterface|any
   ven!:string
-  emp!:string
   checkboxMarcado:Array<boolean> = []
   cant:Array<string>=[]
   folio:string='foli'
   constructor(private service:AppServiceService) {
   }
   ngOnInit(): void {
+    this.clave=localStorage.getItem('clave')
     this.service.getProductos().subscribe(
       data=>{
         this.productos=data
@@ -34,15 +33,7 @@ export class AddVentasComponent implements OnInit{
         console.log(error)
       }
     )
-    this.service.getEmpleados().subscribe(
-      data=>{
-        this.empleados=data
-        this.emp=this.empleados[0].clave
-      },error => {
-        console.log(error)
-      }
-    )
-    this.service.getVentas().subscribe(
+    this.service.getVentasByClave(this.clave!).subscribe(
       data=>{
         this.ventas=data
         this.ven=this.ventas[0].folio
@@ -74,11 +65,11 @@ export class AddVentasComponent implements OnInit{
     const timestamp = date.getTime();
     const randomWithTimestamp = random * timestamp;
     this.folio += Math.floor(randomWithTimestamp) % 10000000;
-    this.service.createVenta(this.folio,this.emp).subscribe(
+    this.service.createVenta(this.folio,localStorage.getItem('clave')!).subscribe(
       response=>{
         console.log(response)
         this.folio='foli'
-        this.service.getVentas().subscribe(
+        this.service.getVentasByClave(this.clave!).subscribe(
           data=>{
             this.ventas=data
             this.ven=this.ventas[0].folio
@@ -113,7 +104,7 @@ export class AddVentasComponent implements OnInit{
         console.log(response)
         console.log('Las caracteristicas repetidas no se ingresan nuevamente')
         /*this.ngOnInit()*/
-        this.service.getVentas().subscribe(
+        this.service.getVentasByClave(this.clave!).subscribe(
           data=>{
             this.ventas=data
           },error => {
@@ -136,7 +127,7 @@ export class AddVentasComponent implements OnInit{
   deleteDetalleVenta(id:number) {
     this.service.deleteDetalleVenta(id).subscribe(
       response=>{
-        this.service.getVentas().subscribe(
+        this.service.getVentasByClave(this.clave!).subscribe(
           data=>{
             this.ventas=data
           },error => {
@@ -159,7 +150,7 @@ export class AddVentasComponent implements OnInit{
   deleteVenta(folio: string) {
     this.service.deleteVenta(folio).subscribe(
       response=>{
-        this.service.getVentas().subscribe(
+        this.service.getVentasByClave(this.clave!).subscribe(
           data=>{
             this.ventas=data
           },error => {

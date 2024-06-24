@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {EmpleadoInterface, PuestoInterface} from "../../../Interfaces/producto-interface";
 import {AppServiceService} from "../../../app-service.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-perfil',
@@ -18,7 +19,7 @@ export class PerfilComponent implements OnInit{
   editarPass:boolean=false
   userObject:EmpleadoInterface|any|null=null
 
-  constructor(private service:AppServiceService) {}
+  constructor(private service:AppServiceService,private router:Router) {}
 
   ngOnInit() {
     const user = localStorage.getItem('user')
@@ -82,5 +83,9 @@ export class PerfilComponent implements OnInit{
 
   toggleFieldTextType() {
     this.fieldTextType = !this.fieldTextType;
+  }
+  closeSession=()=>{
+    localStorage.clear()
+    this.router.navigate(['/auth/login'])
   }
 }

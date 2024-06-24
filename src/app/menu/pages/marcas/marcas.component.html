@@ -18,15 +18,19 @@
       </thead>
       <tbody class="table-group-divider">
       <tr class="align-middle trbody" *ngFor="let i of marcas;let j=index">
-        <td>{{j}}</td>
-        <td>{{i.nombre}}</td>
-        <td>{{i.descripcion}}</td>
+        <td>{{ j }}</td>
+        <td>{{ i.nombre }}</td>
+        <td>{{ i.descripcion }}</td>
         <td>
           <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productsModal"
-                  (click)="updateMarca(j)"><i class="bi bi-pencil-square"></i></button>
+                  (click)="updateMarca(j)" title="Actualizar informacion">
+            <i class="bi bi-pencil-square"></i>
+          </button>
         </td>
         <td>
-          <button class="btn btn-danger" (click)="deleteMarca(i.id)"><i class="bi bi-trash3"></i></button>
+          <button class="btn btn-danger" (click)="deleteMarca(i.id)" title="Eliminar">
+            <i class="bi bi-trash3"></i>
+          </button>
         </td>
       </tr>
       </tbody>
@@ -55,7 +59,8 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-success" (click)="createMarca(nom,desc)"
-                data-bs-dismiss="modal">{{textButtonSubmit}}</button>
+                data-bs-dismiss="modal">{{ textButtonSubmit }}
+        </button>
       </div>
     </div>
   </div>

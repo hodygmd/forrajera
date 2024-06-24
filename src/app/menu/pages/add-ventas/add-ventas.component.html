@@ -1,11 +1,4 @@
-<div class="text-center">
-  <label>
-    <p class="fw-bold">EMPLEADOS:</p>
-    <select [(ngModel)]="emp" class="ms-2" required (change)="change()">
-      <option *ngFor="let i of empleados" [value]="i.clave">{{i.nombre}}</option>
-    </select>
-  </label>
-</div>
+
 <div class="text-center mt-5">
   <button class="custom-btn btn-3" (click)="addVenta()">
     <span>Agregar Venta</span>
@@ -31,7 +24,9 @@
       <td>{{i.total}}</td>
       <td>{{i.clave_empleado.nombre}}</td>
       <td>
-        <button class="btn btn-danger" (click)="deleteVenta(i.folio)"><i class="bi bi-trash3"></i></button>
+        <button class="btn btn-danger" (click)="deleteVenta(i.folio)" title="Eliminar">
+          <i class="bi bi-trash3"></i>
+        </button>
       </td>
     </tr>
     </tbody>
@@ -71,7 +66,9 @@
       <td>{{i.cantidad}}</td>
       <td>{{i.precio}}</td>
       <td>
-        <button class="btn btn-danger" (click)="deleteDetalleVenta(i.id)"><i class="bi bi-trash3"></i></button>
+        <button class="btn btn-danger" (click)="deleteDetalleVenta(i.id)" title="Eliminar">
+          <i class="bi bi-trash3"></i>
+        </button>
       </td>
     </tr>
     </tbody>

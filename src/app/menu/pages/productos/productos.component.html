@@ -1,4 +1,4 @@
-<div class="container mt-5" >
+<div class="container mt-5">
   <div class="text-center">
     <button class="custom-btn btn-3" data-bs-toggle="modal" data-bs-target="#productsModal" (click)="setNull()">
       <span>Agregar Producto</span>
@@ -27,19 +27,28 @@
       </tr>
       </thead>
       <tbody class="table-group-divider">
-          <tr class="align-middle trbody" *ngFor="let i of productos;let j=index">
-            <td>{{j}}</td>
-            <td>{{i.clave}}</td>
-            <td>{{i.nombre}}</td>
-            <td>{{i.descripcion}}</td>
-            <td>{{i.precio}}</td>
-            <td>{{i.existencias}}</td>
-            <td>{{i.id_categoria.nombre}}</td>
-            <td>{{i.id_presentacion.nombre}}</td>
-            <td>{{i.id_marca.nombre}}</td>
-            <td><button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productsModal" (click)="updateProducto(j)"><i class="bi bi-pencil-square"></i></button></td>
-            <td><button class="btn btn-danger" (click)="deleteProducto(i.clave)"><i class="bi bi-trash3"></i></button></td>
-          </tr>
+      <tr class="align-middle trbody" *ngFor="let i of productos;let j=index">
+        <td>{{ j }}</td>
+        <td>{{ i.clave }}</td>
+        <td>{{ i.nombre }}</td>
+        <td>{{ i.descripcion }}</td>
+        <td>{{ i.precio }}</td>
+        <td>{{ i.existencias }}</td>
+        <td>{{ i.id_categoria.nombre }}</td>
+        <td>{{ i.id_presentacion.nombre }}</td>
+        <td>{{ i.id_marca.nombre }}</td>
+        <td>
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productsModal"
+                  (click)="updateProducto(j)" title="Actualizar informacion">
+            <i class="bi bi-pencil-square"></i>
+          </button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteProducto(i.clave)" title="Eliminar">
+            <i class="bi bi-trash3"></i>
+          </button>
+        </td>
+      </tr>
       </tbody>
     </table>
   </div>
@@ -86,26 +95,29 @@
         <label>
           Categoria:
           <select [(ngModel)]="cat" class="ms-2" required>
-            <option *ngFor="let i of categorias" [value]="i.id">{{i.nombre}}</option>
+            <option *ngFor="let i of categorias" [value]="i.id">{{ i.nombre }}</option>
           </select>
         </label>
         <label class="ms-3">
           Presentacion:
           <select [(ngModel)]="pres" class="ms-2" required>
-            <option *ngFor="let i of presentaciones" [value]="i.id">{{i.nombre}}</option>
+            <option *ngFor="let i of presentaciones" [value]="i.id">{{ i.nombre }}</option>
           </select>
         </label>
         <br><br>
         <label>
           Marca:
           <select [(ngModel)]="marc" class="ms-2" required>
-            <option *ngFor="let i of marcas" [value]="i.id">{{i.nombre}}</option>
+            <option *ngFor="let i of marcas" [value]="i.id">{{ i.nombre }}</option>
           </select>
         </label>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-success" (click)="createProducto(nom,desc,parseFloat(prec),parseInt(stmin),parseInt(stmax),parseInt(exis))" data-bs-dismiss="modal">{{textButtonSubmit}}</button>
+        <button type="submit" class="btn btn-success"
+                (click)="createProducto(nom,desc,parseFloat(prec),parseInt(stmin),parseInt(stmax),parseInt(exis))"
+                data-bs-dismiss="modal">{{ textButtonSubmit }}
+        </button>
       </div>
     </div>
   </div>

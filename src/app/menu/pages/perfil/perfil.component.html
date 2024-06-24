@@ -22,12 +22,15 @@
     <div class="card-footer" style="background-color: #613986">
       <div class="d-flex justify-content-around">
         <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#productsModal"
-        (click)="updateEmpleado()">
+                (click)="updateEmpleado()" title="Actualizar informacion">
           <i class="bi bi-pencil-square"></i>
         </button>
         <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#productsModal"
-        (click)="updatePassword()">
+                (click)="updatePassword()" title="Actualizar contraseña">
           <i class="bi bi-person-lock"></i>
+        </button>
+        <button class="btn btn-danger" (click)="closeSession()" title="Cerrar sesion">
+          <i class="bi bi-escape"></i>
         </button>
       </div>
     </div>
