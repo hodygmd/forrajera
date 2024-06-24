@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit{
     if (username == "" || password == "") {
       alert("INGRESAR")
     }else {
-      this.service.auth(username, password).subscribe((data: any) => {
+      this.service.auth(username.trim(), password.trim()).subscribe((data: any) => {
         console.log(data)
         if (data) {
           localStorage.setItem('user', JSON.stringify(data))

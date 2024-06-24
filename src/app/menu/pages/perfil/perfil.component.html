@@ -45,16 +45,16 @@
         <div class="d-flex flex-column">
           <label *ngIf="!editarPass">
             Nombre:
-            <input type="text" class="ms-2" [(ngModel)]="nom">
+            <input type="text" class="ms-2" [(ngModel)]="nom" placeholder="Nombre" required>
           </label>
           <label *ngIf="!editarPass">
             Username:
-            <input type="text" class="ms-2 my-2" [(ngModel)]="user" required>
+            <input type="text" class="ms-2 my-2" [(ngModel)]="user" placeholder="Usuario" required>
           </label>
           <div *ngIf="!editar||editarPass">
             <label class="input-group">
               Password:
-              <input [type]="fieldTextType?'text':'password'" class="form-control ms-2" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"
+              <input [type]="fieldTextType?'text':'password'" class="form-control ms-2" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1"
               style="max-width: 200px" [(ngModel)]="pass" required>
               <span class="input-group-text" id="basic-addon1" (click)="toggleFieldTextType()">
                 <i *ngIf="!fieldTextType" class="bi bi-eye"></i>

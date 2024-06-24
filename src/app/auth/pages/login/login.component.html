@@ -2,14 +2,20 @@
   <div class="container">
     <section class="form-login d-flex flex-column">
       <h5>BIENVENIDO</h5>
-      <input class="controls text-uppercase" (keyup.enter)="sesion(username.value,password.value)" type="text"
-             placeholder="Usuario" #username required>
+
+      <label class="d-flex flex-column">
+        Ingresar Usuario:
+        <input class="controls text-uppercase" (keyup.enter)="sesion(username.value,password.value)" type="text"
+               placeholder="Usuario" #username required>
+      </label>
       <hr>
       <!--<div class="d-flex">
         <input class="controls" [type]="fieldTextType ? 'text' : 'password'"
                (keyup.enter)="sesion(txtNombre.value,txtContra.value)" required type="password" #txtContra>
         <button style="height: 70%" (click)="toggleFieldTextType()">Ver</button>
       </div>-->
+      <label class="d-flex flex-column">
+        Ingresar Contraseña:
       <div class="input-group mb-3">
         <input [type]="fieldTextType?'text':'password'" class="form-control controls" placeholder="Password"
                aria-describedby="basic-addon1" #password (keyup.enter)="sesion(username.value,password.value)" required>
@@ -18,6 +24,8 @@
           <i *ngIf="fieldTextType" class="bi bi-eye-slash"></i>
         </span>
       </div>
+      </label>
+      <!--<button class="custom-btn btn-8 mb-4" routerLink="categorias"><span>Crear cuenta</span></button>-->
 
       <button class="btn botton text-center" (click)="sesion(username.value,password.value)" required>INGRESAR
       </button>
