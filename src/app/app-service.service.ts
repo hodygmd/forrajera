@@ -36,19 +36,21 @@ export class AppServiceService {
 
   /*-------------------------------------------------------------------------------------*/
   getProductos() {
-    return this.http.get<ProductoInterface>(`${this.baseUrl}/producto`)
+    return this.http.get<ProductoInterface>(`${this.baseUrl}/producto${this.token}`)
   }
 
   createProducto(clv: string, nom: string, desc: string, pre: number, stmin: number, stmax: number, exis: number, idcat: number, idpres: number, idmarc: number) {
-    return this.http.post<ProductoInterface>(`${this.baseUrl}/producto/create`, new AddProducto(clv, nom, desc, pre, stmin, stmax, exis, idcat, idpres, idmarc, 1))
+    return this.http.post<ProductoInterface>(`${this.baseUrl}/producto/create${this.token}`,
+      new AddProducto(clv, nom, desc, pre, stmin, stmax, exis, idcat, idpres, idmarc, 1))
   }
 
   updateProducto(clv: string, nom: string, desc: string, pre: number, stmin: number, stmax: number, exis: number, idcat: number, idpres: number, idmarc: number) {
-    return this.http.put<ProductoInterface>(`${this.baseUrl}/producto/update/${clv}`, new AddProducto(clv, nom, desc, pre, stmin, stmax, exis, idcat, idpres, idmarc, 1))
+    return this.http.put<ProductoInterface>(`${this.baseUrl}/producto/update/${clv}${this.token}`,
+      new AddProducto(clv, nom, desc, pre, stmin, stmax, exis, idcat, idpres, idmarc, 1))
   }
 
   deleteProducto(clave: string) {
-    return this.http.put<ProductoInterface>(`${this.baseUrl}/producto/delete/${clave}`, '')
+    return this.http.put<ProductoInterface>(`${this.baseUrl}/producto/delete/${clave}${this.token}`, '')
   }
 
   /*--------------------------------------------------------------------------------------*/
@@ -60,15 +62,17 @@ export class AppServiceService {
   }
 
   createCategoria(nom: string, idfun: number) {
-    return this.http.post<CategoriaInterface>(`${this.baseUrl}/categoria/create`, new AddCategoria(nom, idfun, 1))
+    return this.http.post<CategoriaInterface>(`${this.baseUrl}/categoria/create${this.token}`,
+      new AddCategoria(nom, idfun, 1))
   }
 
   updateCategoria(id: number, nom: string, idfun: number) {
-    return this.http.put<CategoriaInterface>(`${this.baseUrl}/categoria/update/${id}`, new AddCategoria(nom, idfun, 1))
+    return this.http.put<CategoriaInterface>(`${this.baseUrl}/categoria/update/${id}${this.token}`,
+      new AddCategoria(nom, idfun, 1))
   }
 
   deleteCategoria(id: number) {
-    return this.http.put<CategoriaInterface>(`${this.baseUrl}/categoria/delete/${id}`, '')
+    return this.http.put<CategoriaInterface>(`${this.baseUrl}/categoria/delete/${id}${this.token}`, '')
   }
 
   /*------------------------------------------------------------------------------------------*/
@@ -76,19 +80,21 @@ export class AppServiceService {
 
   /*------------------------------------------------------------------------------------------*/
   getPresentaciones() {
-    return this.http.get<PresentacionInterface>(`${this.baseUrl}/presentacion`)
+    return this.http.get<PresentacionInterface>(`${this.baseUrl}/presentacion${this.token}`)
   }
 
   createPresentacion(nom: string, desc: string, idunmed: number, med: number) {
-    return this.http.post<PresentacionInterface>(`${this.baseUrl}/presentacion/create`, new AddPresentacion(nom, desc, idunmed, med, 1))
+    return this.http.post<PresentacionInterface>(`${this.baseUrl}/presentacion/create${this.token}`,
+      new AddPresentacion(nom, desc, idunmed, med, 1))
   }
 
   updatePresentacion(id: number, nom: string, desc: string, idunmed: number, med: number) {
-    return this.http.put<PresentacionInterface>(`${this.baseUrl}/presentacion/update/${id}`, new AddPresentacion(nom, desc, idunmed, med, 1))
+    return this.http.put<PresentacionInterface>(`${this.baseUrl}/presentacion/update/${id}${this.token}`,
+      new AddPresentacion(nom, desc, idunmed, med, 1))
   }
 
   deletePresentacion(id: number) {
-    return this.http.put<PresentacionInterface>(`${this.baseUrl}/presentacion/delete/${id}`, '')
+    return this.http.put<PresentacionInterface>(`${this.baseUrl}/presentacion/delete/${id}${this.token}`, '')
   }
 
   /*----------------------------------------------------------------------------------*/
@@ -96,19 +102,21 @@ export class AppServiceService {
 
   /*----------------------------------------------------------------------------------*/
   getMarcas() {
-    return this.http.get<MrcFncnInterface>(`${this.baseUrl}/marca`)
+    return this.http.get<MrcFncnInterface>(`${this.baseUrl}/marca${this.token}`)
   }
 
   createMarca(nom: string, desc: string) {
-    return this.http.post<MrcFncnInterface>(`${this.baseUrl}/marca/create`, new AddMrcfncn(nom, desc, 1))
+    return this.http.post<MrcFncnInterface>(`${this.baseUrl}/marca/create${this.token}`,
+      new AddMrcfncn(nom, desc, 1))
   }
 
   updateMarca(id: number, nom: string, desc: string) {
-    return this.http.put<MrcFncnInterface>(`${this.baseUrl}/marca/update/${id}`, new AddMrcfncn(nom, desc, 1))
+    return this.http.put<MrcFncnInterface>(`${this.baseUrl}/marca/update/${id}${this.token}`,
+      new AddMrcfncn(nom, desc, 1))
   }
 
   deleteMarca(id: number) {
-    return this.http.put<MrcFncnInterface>(`${this.baseUrl}/marca/delete/${id}`, '')
+    return this.http.put<MrcFncnInterface>(`${this.baseUrl}/marca/delete/${id}${this.token}`, '')
   }
 
   /*-------------------------------------------------------------------------------------*/
@@ -116,48 +124,54 @@ export class AppServiceService {
 
   /*-------------------------------------------------------------------------------------*/
   getFunciones() {
-    return this.http.get<MrcFncnInterface>(`${this.baseUrl}/funcion`)
+    return this.http.get<MrcFncnInterface>(`${this.baseUrl}/funcion${this.token}`)
   }
   createFuncion(nom: string, desc: string) {
-    return this.http.post<MrcFncnInterface>(`${this.baseUrl}/funcion/create`,new AddMrcfncn(nom,desc,1))
+    return this.http.post<MrcFncnInterface>(`${this.baseUrl}/funcion/create${this.token}`,
+      new AddMrcfncn(nom,desc,1))
   }
   updateFuncion(id:number,nom: string, desc: string){
-    return this.http.put<MrcFncnInterface>(`${this.baseUrl}/funcion/update/${id}`,new AddMrcfncn(nom,desc,1))
+    return this.http.put<MrcFncnInterface>(`${this.baseUrl}/funcion/update/${id}${this.token}`,
+      new AddMrcfncn(nom,desc,1))
   }
   deleteFuncion(id:number){
-    return this.http.put<MrcFncnInterface>(`${this.baseUrl}/funcion/delete/${id}`,'')
+    return this.http.put<MrcFncnInterface>(`${this.baseUrl}/funcion/delete/${id}${this.token}`,'')
   }
   /*-------------------------------------------------------------------------------------*/
   /*--------------------------------UNIDADES DE MEDIDA-----------------------------------*/
 
   /*-------------------------------------------------------------------------------------*/
   getUnidadesMedida() {
-    return this.http.get<UnidadMedidaInterface>(`${this.baseUrl}/unidad-medida`)
+    return this.http.get<UnidadMedidaInterface>(`${this.baseUrl}/unidad-medida${this.token}`)
   }
   createUnidadMedida(unidad:string){
-    return this.http.post<UnidadMedidaInterface>(`${this.baseUrl}/unidad-medida/create`,new AddUnidadMedida(unidad,1))
+    return this.http.post<UnidadMedidaInterface>(`${this.baseUrl}/unidad-medida/create${this.token}`,
+      new AddUnidadMedida(unidad,1))
   }
   updateUnidadMedida(id:number,unidad:string){
-    return this.http.put<UnidadMedidaInterface>(`${this.baseUrl}/unidad-medida/update/${id}`,new AddUnidadMedida(unidad,1))
+    return this.http.put<UnidadMedidaInterface>(`${this.baseUrl}/unidad-medida/update/${id}${this.token}`,
+      new AddUnidadMedida(unidad,1))
   }
   deleteUnidadMedida(id:number){
-    return this.http.put<UnidadMedidaInterface>(`${this.baseUrl}/unidad-medida/delete/${id}`,'')
+    return this.http.put<UnidadMedidaInterface>(`${this.baseUrl}/unidad-medida/delete/${id}${this.token}`,'')
   }
   /*-------------------------------------------------------------------------------------*/
   /*-------------------------------------PUESTOS-----------------------------------------*/
 
   /*-------------------------------------------------------------------------------------*/
   getPuestos(){
-    return this.http.get<PuestoInterface>(`${this.baseUrl}/puesto`)
+    return this.http.get<PuestoInterface>(`${this.baseUrl}/puesto${this.token}`)
   }
   createPuesto(nom:string){
-    return this.http.post<PuestoInterface>(`${this.baseUrl}/puesto/create`,new AddPuesto(nom,1))
+    return this.http.post<PuestoInterface>(`${this.baseUrl}/puesto/create${this.token}`,
+      new AddPuesto(nom,1))
   }
   updatePuesto(id:number,nom:string){
-    return this.http.put<PuestoInterface>(`${this.baseUrl}/puesto/update/${id}`,new AddPuesto(nom,1))
+    return this.http.put<PuestoInterface>(`${this.baseUrl}/puesto/update/${id}${this.token}`,
+      new AddPuesto(nom,1))
   }
   deletePuesto(id:number){
-    return this.http.put<PuestoInterface>(`${this.baseUrl}/puesto/delete/${id}`,'1')
+    return this.http.put<PuestoInterface>(`${this.baseUrl}/puesto/delete/${id}${this.token}`,'')
   }
   /*-------------------------------------------------------------------------------------*/
   /*------------------------------------EMPLEADOS----------------------------------------*/
@@ -186,28 +200,29 @@ export class AppServiceService {
 
   /*-------------------------------------------------------------------------------------*/
   getProductosByFolio(folio:string){
-    return this.http.get<DetalleVentaInterface>(`${this.baseUrl}/dv/${folio}`)
+    return this.http.get<DetalleVentaInterface>(`${this.baseUrl}/dv/${folio}${this.token}`)
   }
   addDetalleVenta(dv:AddDetalleVenta[]){
-    return this.http.post(`${this.baseUrl}/dv/create`,dv)
+    return this.http.post(`${this.baseUrl}/dv/create${this.token}`,dv)
   }
   deleteDetalleVenta(id:number){
-    return this.http.delete(`${this.baseUrl}/dv/delete/${id}`)
+    return this.http.delete(`${this.baseUrl}/dv/delete/${id}${this.token}`)
   }
   /*-------------------------------------------------------------------------------------*/
   /*---------------------------------------VENTAS----------------------------------------*/
 
   /*-------------------------------------------------------------------------------------*/
   getVentas(){
-    return this.http.get<VentaInterface>(`${this.baseUrl}/venta`)
+    return this.http.get<VentaInterface>(`${this.baseUrl}/venta${this.token}`)
   }
   getVentasByClave(clave:string){
-    return this.http.get<VentaInterface>(`${this.baseUrl}/venta/ver-ventas/${clave}`)
+    return this.http.get<VentaInterface>(`${this.baseUrl}/venta/ver-ventas/${clave}${this.token}`)
   }
   createVenta(folio:string,clave:string){
-    return this.http.post<VentaInterface>(`${this.baseUrl}/venta/create`,new AddVenta(folio,0,clave,1))
+    return this.http.post<VentaInterface>(`${this.baseUrl}/venta/create${this.token}`,
+      new AddVenta(folio,0,clave,1))
   }
   deleteVenta(folio:string){
-    return this.http.put<VentaInterface>(`${this.baseUrl}/venta/delete/${folio}`,'')
+    return this.http.put<VentaInterface>(`${this.baseUrl}/venta/delete/${folio}${this.token}`,'')
   }
 }
