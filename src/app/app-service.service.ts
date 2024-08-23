@@ -25,7 +25,6 @@ export class AppServiceService {
   //private baseUrl = 'http://localhost:8080';
   private baseUrlPrimary = 'http://localhost:8080';
   private baseUrlSecondary = 'http://localhost:8081';
-  private token = '?token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2NlIiwiY2xhdmUiOiJlbXBsMjMwMDg2NiIsImlhdCI6MTcxOTEyNjkzMiwiZXhwIjoxNzE5OTkwOTMyfQ.kJhZKJqROhLBylzs1EhYfmpeoQxzLShg7oIQwFAgQe0';
 
   constructor(private http: HttpClient) {
   }
@@ -35,14 +34,15 @@ export class AppServiceService {
   /*-------------------------------------------------------------------------------------*/
   // Método para comprobar la URL principal y, si falla, intentar con la de respaldo
   private checkUrls<T>(endpoint:string,method: string, body?: any): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json',
+    'Authorization':'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtYW51ZWwiLCJjbGF2ZSI6IjExMTExIiwiaWF0IjoxNzI0Mzc0MjQ0LCJleHAiOjE3MjUwNjc4NzN9.brpC4exWS1Bb2qpXy-yKYPPh8zZhGUqLh8XlM1Fa8CM'});
     const url1=`${this.baseUrlPrimary}${endpoint}`
     const url2=`${this.baseUrlSecondary}${endpoint}`
-    return this.http.request<T>(method, `${url1}${this.token}`, { headers, body }).pipe(
+    return this.http.request<T>(method, `${url1}`, { headers, body }).pipe(
       catchError((error) => {
         console.error(`Error en la URL ${url1}. Intentando con la URL de respaldo...`);
         // Si falla la URL principal, intenta con la URL de respaldo
-        return this.http.request<T>(method, `${url2}${this.token}`, { headers, body });
+        return this.http.request<T>(method, `${url2}`, { headers, body });
       })
     );
   }
